@@ -17,14 +17,14 @@ const SnackbarAlert: React.VFC<SnackbarAlertProps> = (props) => {
       autoHideDuration={6_000}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
     >
-      <Alert onClose={onClose} severity={severity} sx={{ width: '100%' }}>
+      <Alert severity={severity} onClose={onClose} sx={{ width: '100%' }}>
         {message}
       </Alert>
     </Snackbar>
   );
 };
 
-export const showMessage = (message: string, severity?: AlertColor) => {
+export const snackbarAlert = (message: string, severity?: AlertColor) => {
   const wrapper = document.getElementById('snackbar');
   if (!wrapper) {
     return;

@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { showMessage } from '../components/message';
+import { snackbarAlert } from '../components/snackbar-alert';
 
 const seriesMap = [
   { value: '1', label: 'シリーズ1' },
@@ -43,7 +43,7 @@ const HookFormPage: React.VFC = () => {
   });
   const onSubmit = (values: ProductForm) => {
     console.log(values);
-    showMessage('入力された内容にエラーがあります', 'error');
+    snackbarAlert('入力された内容にエラーがあります', 'error');
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
